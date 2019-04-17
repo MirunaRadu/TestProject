@@ -5,14 +5,14 @@ import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import com.example.test.data.model.Item
-import io.reactivex.Flowable
+import io.reactivex.Observable
 
 @Dao
 interface ItemDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insert(item: Item)
+    fun insert(item: Item): Long
 
     @Query(Constants.ItemQueries.getAllQuery)
-    fun getAll(): Flowable<List<Item>>
+    fun getAll(): Observable<List<Item>>
 }
