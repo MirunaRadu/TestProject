@@ -27,25 +27,31 @@ ext {
     dagger2_version = "2.16"
     rxjava2_version = "2.1.3"
     rxandroid_version = "2.1.0"
+    constraint_layout_version = "1.1.3"
+    support_version = "1.0.0"
 
 }
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation"org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
-    implementation 'androidx.appcompat:appcompat:1.0.0-beta01'
+    implementation 'androidx.appcompat:appcompat:1.1.0-alpha04'
     implementation 'androidx.core:core-ktx:1.1.0-alpha05'
     implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
     testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'androidx.test:runner:1.1.0-alpha4'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.0-alpha4'
+    androidTestImplementation 'androidx.test:runner:1.2.0-alpha03'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0-alpha03'
+    // ui
+    implementation "androidx.constraintlayout:constraintlayout:$constraint_layout_version"
+    implementation "androidx.recyclerview:recyclerview:$support_version"
+    implementation "com.google.android.material:material:$support_version"
 
     // Room components
     implementation 'android.arch.persistence.room:runtime:1.1.1'
-    annotationProcessor 'android.arch.persistence.room:compiler:1.1.1'
+    kapt 'android.arch.persistence.room:compiler:1.1.1'
 
     // Lifecycle components
-    implementation 'android.arch.lifecycle:extensions:1.1.1'
-    annotationProcessor 'android.arch.lifecycle:compiler:1.1.1'
+    implementation 'android.arch.lifecycle:extensions:2.0.0'
+    kapt 'android.arch.lifecycle:compiler:2.0.0'
 
     // Room
     implementation "androidx.room:room-runtime:$room_version"
