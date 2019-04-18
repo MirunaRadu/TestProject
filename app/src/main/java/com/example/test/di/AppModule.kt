@@ -11,7 +11,7 @@ import dagger.Provides
 class AppModule {
 
     @Provides
-    @ApplicationScope
+    @ApplicationScope()
     internal fun provideApplication(application: Application): TestApplication = application as TestApplication
 
     @Provides

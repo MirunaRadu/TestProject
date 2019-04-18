@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.MainActivity">
+    tools:context=".ui.main.MainActivity">
 
     <TextView
         android:id="@+id/titleTv"
@@ -35,14 +35,12 @@
         android:text="@string/placeholder_add_item"
         app:layout_constraintTop_toBottomOf="@id/itemNameEt" />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/listRecyclerView"
+    <FrameLayout
+        android:id="@+id/fragment_container"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/standard_margin"
-        app:layout_constraintTop_toBottomOf="@id/addItemButton">
-
-    </androidx.recyclerview.widget.RecyclerView>
+        app:layout_constraintTop_toBottomOf="@id/addItemButton"
+        android:layout_margin="@dimen/standard_margin" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

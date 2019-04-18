@@ -1,4 +1,4 @@
-package com.example.test.ui
+package com.example.test.ui.main
 
 import com.example.test.data.ItemRepository
 import com.example.test.di.scope.ActivityScope
@@ -9,7 +9,8 @@ import dagger.Provides
 class MainModule{
     @Provides
     @ActivityScope
-    internal fun provideMainViewModelFactory(repository:ItemRepository) = MainViewModelFactory(repository)
+    internal fun provideMainViewModelFactory(repository:ItemRepository) =
+        MainViewModelFactory(repository)
 
 
 }

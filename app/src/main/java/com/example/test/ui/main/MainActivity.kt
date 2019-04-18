@@ -1,4 +1,4 @@
-package com.example.test.ui
+package com.example.test.ui.main
 
 import android.os.Bundle
 import android.widget.Toast
@@ -8,10 +8,11 @@ import com.example.test.base.BaseActivity
 import com.example.test.data.model.Item
 import com.example.test.observeNonNull
 import com.example.test.ui.adapter.ItemsAdapter
+import com.example.test.ui.list.ListFragment
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : BaseActivity<MainViewModel, MainViewModelFactory>(){
-    private lateinit var itemsAdapter: ItemsAdapter
+
 
     override fun getViewModelClass(): Class<MainViewModel> {
         return MainViewModel::class.java
@@ -20,11 +21,10 @@ class MainActivity : BaseActivity<MainViewModel, MainViewModelFactory>(){
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        setRecyclerView()
+        supportFragmentManager.beginTransaction().add(R.id.fragment_container,
+                ListFragment.newInstance()).commit()
         setUpListeners()
-        viewModel.getAllLocalItems {
-            Toast.makeText(this,"Items could not be loaded!",Toast.LENGTH_SHORT).show()
-        }
+
     }
 
     private fun setUpListeners() {
@@ -36,16 +36,6 @@ class MainActivity : BaseActivity<MainViewModel, MainViewModelFactory>(){
                 }
             }
         }
-
-        viewModel.itemList.observeNonNull(this@MainActivity) {
-            itemsAdapter.reloadList(it)
-        }
-    }
-
-    private fun setRecyclerView() = with(listRecyclerView) {
-        itemsAdapter = ItemsAdapter()
-        adapter = itemsAdapter
-        layoutManager = LinearLayoutManager(this@MainActivity)
 
     }
 

@@ -4,4 +4,7 @@
     <string name="placeholder_item_name">name</string>
     <string name="placeholder_add_item">Add</string>
     <string name="placeholder_id">id</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

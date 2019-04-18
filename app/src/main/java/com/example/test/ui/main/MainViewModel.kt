@@ -1,7 +1,6 @@
-package com.example.test.ui
+package com.example.test.ui.main
 
 import android.util.Log
-import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.example.test.base.BaseViewModel
 import com.example.test.data.ItemRepository
@@ -10,7 +9,6 @@ import io.reactivex.android.schedulers.AndroidSchedulers
 
 class MainViewModel(private val repository: ItemRepository) : BaseViewModel(){
 
-    var itemList = MutableLiveData<List<Item>>()
 
     fun addItemToDatabase(name:String, callback: (Item) -> Unit){
         addDisposable(repository.insertItem(Item(null,name)).
@@ -25,13 +23,5 @@ class MainViewModel(private val repository: ItemRepository) : BaseViewModel(){
                 }))
     }
 
-    fun getAllLocalItems(handleError:(String)->Unit){
-        addDisposable(repository.getAllItems()
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe({
-                    itemList.value = it
-                },{
-                    handleError(it.message.toString())
-                }))
-    }
+
 }
