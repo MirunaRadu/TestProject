@@ -39,8 +39,18 @@
         android:id="@+id/fragment_container"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/addItemButton"
-        android:layout_margin="@dimen/standard_margin" />
+        android:layout_margin="@dimen/standard_margin"
+        app:layout_constraintTop_toBottomOf="@id/addItemButton" />
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/navigation_bar"
+        android:layout_width="match_parent"
+        app:labelVisibilityMode="labeled"
+        app:itemBackground="@drawable/menu_selector"
+        android:layout_height="@dimen/menu"
+        app:itemIconTint="@color/colorAccent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:menu="@menu/navigation" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
